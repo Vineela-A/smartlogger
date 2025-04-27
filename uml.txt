@@ -1,0 +1,47 @@
+@startuml
+
+interface ILogDestination {
+    + info(message: string): void
+    + log(message: string): void
+    + warn(message: string): void
+    + error(message: string): void
+}
+
+class FileLogger {
+    - filePath: string
+    + info(message: string): void
+    + log(message: string): void
+    + warn(message: string): void
+    + error(message: string): void
+}
+
+class ConsoleLogger {
+    + info(message: string): void
+    + log(message: string): void
+    + warn(message: string): void
+    + error(message: string): void
+}
+
+class CustomLogger {
+    - instance: CustomLogger
+    - destinations: ILogDestination[]
+    + info(message: string): void
+    + log(message: string): void
+    + warn(message: string): void
+    + error(message: string): void
+    + addLogDestination(dest: ILogDestination): void
+    + getInstance(): CustomLogger
+}
+
+ILogDestination <|.. FileLogger
+ILogDestination <|.. ConsoleLogger
+ILogDestination <|.. CustomLogger
+CustomLogger --> ILogDestination : uses
+
+note right of CustomLogger
+Singleton:
+- Private constructor
+- Static getInstance()
+end note
+
+@enduml
