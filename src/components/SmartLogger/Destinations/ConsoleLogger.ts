@@ -1,4 +1,4 @@
-import { ILogDestination } from './ILogDestination';
+import { ILogDestination } from '../Core/ILogDestination';
 
 export class ConsoleLogger implements ILogDestination {
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function HomePage({ logger }) {
-    // logger.log('Home : App component rendered');
-    // logger.info('Home : This is an info message');
-    // logger.warn('Home : This is a warning message');
-    // logger.error('Home : This is an error message');
+    logger.log('Home : App component rendered');
+    logger.info('Home : This is an info message');
+    logger.warn('Home : This is a warning message');
+    logger.error('Home : This is an error message');
     logger.log([1, 2, 3]);
     logger.log({ "a": 1, "b": 2 });
     return (

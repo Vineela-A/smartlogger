@@ -1,4 +1,4 @@
-import { ILogDestination } from './ILogDestination';
+import { ILogDestination } from '../Core/ILogDestination';
 
 export class FileLogger implements ILogDestination {
     private filePath: string;
