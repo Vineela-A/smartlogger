@@ -39,3 +39,5 @@ export class CustomLogger {
         }
     }
 }
+
+export default CustomLogger;

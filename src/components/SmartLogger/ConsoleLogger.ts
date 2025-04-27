@@ -17,3 +17,5 @@ export class ConsoleLogger implements ILogDestination {
         console.error(`ERROR: ${message}`);
     }
 }
+
+export default ConsoleLogger;

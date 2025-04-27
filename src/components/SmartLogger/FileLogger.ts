@@ -28,3 +28,4 @@ export class FileLogger implements ILogDestination {
         console.log(`Writing to file (${this.filePath}): ${message}`);
     }
 }
+export default FileLogger;
