@@ -17,25 +17,25 @@ export class CustomLogger {
         this.destinations.push(dest);
     }
 
-    info(message: string): void {
+    info<T>(message: T): void {
         this.logToDestinations('info', message);
     }
 
-    log(message: string): void {
+    log<T>(message: T): void {
         this.logToDestinations('log', message);
     }
 
-    warn(message: string): void {
+    warn<T>(message: T): void {
         this.logToDestinations('warn', message);
     }
 
-    error(message: string): void {
+    error<T>(message: T): void {
         this.logToDestinations('error', message);
     }
 
-    private logToDestinations(method: keyof ILogDestination, message: string): void {
+    private logToDestinations<T>(method: keyof ILogDestination, message: T): void {
         for (const destination of this.destinations) {
-            destination[method](message);
+            destination[method](message); // Dynamically call the method
         }
     }
 }

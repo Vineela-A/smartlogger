@@ -1,20 +1,21 @@
 import { ILogDestination } from './ILogDestination';
 
 export class ConsoleLogger implements ILogDestination {
-    info(message: string): void {
-        console.info(`INFO: ${message}`);
+
+    info<T>(message: T): void {
+        console.error(message);
     }
 
-    log(message: string): void {
-        console.log(`LOG: ${message}`);
+    log<T>(message: T): void {
+        console.log(message);
     }
 
-    warn(message: string): void {
-        console.warn(`WARN: ${message}`);
+    warn<T>(message: T): void {
+        console.error(message);
     }
 
-    error(message: string): void {
-        console.error(`ERROR: ${message}`);
+    error<T>(message: T): void {
+        console.error(message);
     }
 }
 

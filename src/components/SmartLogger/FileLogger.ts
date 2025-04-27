@@ -7,25 +7,32 @@ export class FileLogger implements ILogDestination {
         this.filePath = filePath;
     }
 
-    info(message: string): void {
+    info<T>(message: T): void {
         this.logToFile(`INFO: ${message}`);
     }
 
-    log(message: string): void {
+    log<T>(message: T): void {
         this.logToFile(`LOG: ${message}`);
     }
 
-    warn(message: string): void {
+    warn<T>(message: T): void {
         this.logToFile(`WARN: ${message}`);
     }
 
-    error(message: string): void {
+    error<T>(message: T): void {
         this.logToFile(`ERROR: ${message}`);
     }
 
-    private logToFile(message: string): void {
+    private logToFile<T>(message: T): void {
         // Logic to write the message to the file at this.filePath
-        console.log(`Writing to file (${this.filePath}): ${message}`);
+        console.log(`Writing to file (${this.filePath}): ${this.formatMessage(message)}`);
+    }
+
+    private formatMessage<T>(message: T): string {
+        if (typeof message === 'object') {
+            return JSON.stringify(message, null, 2); // Pretty-print objects
+        }
+        return String(message); // Convert other types to string
     }
 }
 export default FileLogger;

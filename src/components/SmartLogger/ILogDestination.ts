@@ -1,6 +1,6 @@
 export interface ILogDestination {
-    info(message: string): void;
-    log(message: string): void;
-    warn(message: string): void;
-    error(message: string): void;
+    info<T>(message: T): void;
+    log<T>(message: T): void;
+    warn<T>(message: T): void;
+    error<T>(message: T): void;
 }
